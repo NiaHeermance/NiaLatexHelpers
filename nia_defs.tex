@@ -1,0 +1,910 @@
+
+% ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~ %
+
+% Nia's Defs
+% By Nia Madeline Heermance
+
+% This document is updated over time.
+% Feel free to use my defs if you find them useful.
+
+
+% ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~ %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % PREAMBLE
+  
+  % Document Class:
+  % \documentclass{article}
+  
+  % _,.-'~'-.,__,.-'~' %
+
+  % Packages:
+  % Mathematics
+    \usepackage{amsmath} % Math.
+    \usepackage{amssymb} % Math Symbols.
+    \usepackage{mathrsfs} % Fancy Math Fonts.
+    \usepackage{amsthm} % Theorems.
+
+  % Coding
+    \usepackage{listings} % Coding Formats
+
+  % Utility
+    \usepackage{graphicx} % Figures.
+    \usepackage{caption} % Hiding figure numbers.
+    \usepackage{float} % For placing figures.
+    \usepackage{enumerate} % Enumerate Entries.
+    \usepackage{mathtools} % Boxing Aligned Answers.
+    \usepackage{xparse} % Multiple Optional Arguments.
+  
+  % LaTeX Looks
+    \usepackage[utf8]{inputenc} % UTF-8 Encoding
+    \usepackage{microtype} % Allows stretching of letters for more happy boxes
+    \usepackage{needspace} % Allows forcing of blocks to finish on the next page.
+    \usepackage{color} % Different color keywords.
+    \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref} % Links
+
+  % _,.-'~'-.,__,.-'~' %
+
+  % Document Settings:
+    \usepackage{geometry} % Wide Margins.
+    \setlength{\columnsep}{3cm}  % Setting the margins.
+    \renewcommand*{\arraystretch}{1.2} % More spread out Matrices
+
+    % Black Square at End of Proofs:
+      \renewcommand\qedsymbol{$\blacksquare$} % Black Square.
+
+    % Spacing:
+      % Paragraph Spacing
+        \parskip=0.5cm
+
+      % Matrix Spacing
+        \setlength\arraycolsep{8pt}
+      \def\arraystretch{1.4}
+
+      \makeatletter
+      \renewenvironment{bmatrix}
+      {\left[\mkern3.5mu\env@matrix}
+      {\endmatrix\mkern3.5mu\right]}
+
+      \renewenvironment{vmatrix}
+      {\left\lvert\mkern5mu\env@matrix}
+      {\endmatrix\mkern5mu\right\rvert}
+      \makeatother
+
+  % _,.-'~'-.,__,.-'~' %
+
+  % Formatting Shortcuts
+    
+    % In-Line Format
+      \newcommand{\disp}[1]{\displaystyle{#1}}
+  
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*... 
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % SYMBOL SHORTCUTS
+  % Bold Letters:
+    % Lowercase:
+      \newcommand{\ab}{\mathbf{a}}
+      \newcommand{\bb}{\mathbf{b}}
+      \newcommand{\cb}{\mathbf{c}}
+      \newcommand{\db}{\mathbf{d}}
+      \newcommand{\eb}{\mathbf{e}}
+      \newcommand{\fb}{\mathbf{f}}
+      \newcommand{\gb}{\mathbf{g}}
+      \newcommand{\hb}{\mathbf{h}}
+      \newcommand{\ib}{\mathbf{i}}
+      \newcommand{\jb}{\mathbf{j}}
+      \newcommand{\kb}{\mathbf{k}}
+      \newcommand{\lb}{\mathbf{l}}
+      \newcommand{\mb}{\mathbf{m}}
+      \newcommand{\nb}{\mathbf{n}}
+      \newcommand{\ob}{\mathbf{o}}
+      \newcommand{\pb}{\mathbf{p}}
+      \newcommand{\qb}{\mathbf{q}}
+      \newcommand{\rb}{\mathbf{r}}
+      \def\sb{\mathbf{s}}
+      \newcommand{\tb}{\mathbf{t}}
+      \newcommand{\ub}{\mathbf{u}}
+      \newcommand{\vb}{\mathbf{v}}
+      \newcommand{\wb}{\mathbf{w}}
+      \newcommand{\xb}{\mathbf{x}}
+      \newcommand{\yb}{\mathbf{y}}
+      \newcommand{\zb}{\mathbf{z}}
+
+    % Uppercase:
+      \newcommand{\Ab}{\mathbf{A}}
+      \newcommand{\Bb}{\mathbf{B}}
+      \newcommand{\Cb}{\mathbf{C}}
+      \newcommand{\Db}{\mathbf{D}}
+      \newcommand{\Eb}{\mathbf{E}}
+      \newcommand{\Fb}{\mathbf{F}}
+      \newcommand{\Gb}{\mathbf{G}}
+      \newcommand{\Hb}{\mathbf{H}}
+      \newcommand{\Ib}{\mathbf{I}}
+      \newcommand{\Jb}{\mathbf{J}}
+      \newcommand{\Kb}{\mathbf{K}}
+      \newcommand{\Lb}{\mathbf{L}}
+      \newcommand{\Mb}{\mathbf{M}}
+      \newcommand{\Nb}{\mathbf{N}}
+      \newcommand{\Ob}{\mathbf{O}}
+      \newcommand{\Pb}{\mathbf{P}}
+      \newcommand{\Qb}{\mathbf{Q}}
+      \newcommand{\Rb}{\mathbf{R}}
+      \newcommand{\Sb}{\mathbf{S}}
+      \newcommand{\Tb}{\mathbf{T}}
+      \newcommand{\Ub}{\mathbf{U}}
+      \newcommand{\Vb}{\mathbf{V}}
+      \newcommand{\Wb}{\mathbf{W}}
+      \newcommand{\Xb}{\mathbf{X}}
+      \newcommand{\Yb}{\mathbf{Y}}
+      \newcommand{\Zb}{\mathbf{Z}}
+
+  % _,.-'~'-.,__,.-'~' %
+
+  % Fancy Script:
+    % Uppercase:
+      \newcommand{\As}{\mathscr{A}}
+      \newcommand{\Bs}{\mathscr{B}}
+      \newcommand{\Cs}{\mathscr{C}}
+      \newcommand{\Ds}{\mathscr{D}}
+      \newcommand{\Es}{\mathscr{E}}
+      \newcommand{\Fs}{\mathscr{F}}
+      \newcommand{\Gs}{\mathscr{G}}
+      \newcommand{\Hs}{\mathscr{H}}
+      \newcommand{\Is}{\mathscr{I}}
+      \newcommand{\Js}{\mathscr{J}}
+      \newcommand{\Ks}{\mathscr{K}}
+      \newcommand{\Ls}{\mathscr{L}}
+      \newcommand{\Ms}{\mathscr{M}}
+      \newcommand{\Ns}{\mathscr{N}}
+      \newcommand{\Os}{\mathscr{O}}
+      \newcommand{\Ps}{\mathscr{P}}
+      \newcommand{\Qs}{\mathscr{Q}}
+      \newcommand{\Rs}{\mathscr{R}}
+      \newcommand{\Ss}{\mathscr{S}}
+      \newcommand{\Ts}{\mathscr{T}}
+      \newcommand{\Us}{\mathscr{U}}
+      \newcommand{\Vs}{\mathscr{V}}
+      \newcommand{\Ws}{\mathscr{W}}
+      \newcommand{\Xs}{\mathscr{X}}
+      \newcommand{\Ys}{\mathscr{Y}}
+      \newcommand{\Zs}{\mathscr{Z}}
+      
+   % Less Fancy Script:
+    % Uppercase:
+      \newcommand{\Ac}{\mathcal{A}}
+      \newcommand{\Bc}{\mathcal{B}}
+      \newcommand{\Cc}{\mathcal{C}}
+      \newcommand{\Dc}{\mathcal{D}}
+      \newcommand{\Ec}{\mathcal{E}}
+      \newcommand{\Fc}{\mathcal{F}}
+      \newcommand{\Gc}{\mathcal{G}}
+      \newcommand{\Hc}{\mathcal{H}}
+      \newcommand{\Ic}{\mathcal{I}}
+      \newcommand{\Jc}{\mathcal{J}}
+      \newcommand{\Kc}{\mathcal{K}}
+      \newcommand{\Lc}{\mathcal{L}}
+      \newcommand{\Mc}{\mathcal{M}}
+      \newcommand{\Nc}{\mathcal{N}}
+      \newcommand{\Oc}{\mathcal{O}}
+      \newcommand{\Pc}{\mathcal{P}}
+      \newcommand{\Qc}{\mathcal{Q}}
+      \newcommand{\Rc}{\mathcal{R}}
+      \newcommand{\Sc}{\mathcal{S}}
+      \newcommand{\Tc}{\mathcal{T}}
+      \newcommand{\Uc}{\mathcal{U}}
+      \newcommand{\Vc}{\mathcal{V}}
+      \newcommand{\Wc}{\mathcal{W}}
+      \newcommand{\Xc}{\mathcal{X}}
+      \newcommand{\Yc}{\mathcal{Y}}
+      \newcommand{\Zc}{\mathcal{Z}}
+
+  % _,.-'~'-.,__,.-'~' %
+
+  % Starred Letters
+    % Lowercase:
+      \def\ast{{a^*}}
+      \newcommand{\bst}{{b^*}}
+      \newcommand{\cst}{{c^*}}
+      \newcommand{\dst}{{d^*}}
+      \newcommand{\est}{{e^*}}
+      \newcommand{\fst}{{f^*}}
+      \newcommand{\gst}{{g^*}}
+      \newcommand{\hst}{{h^*}}
+      \newcommand{\ist}{{i^*}}
+      \newcommand{\jst}{{j^*}}
+      \newcommand{\kst}{{k^*}}
+      \newcommand{\lst}{{l^*}}
+      \newcommand{\mst}{{m^*}}
+      \newcommand{\nst}{{n^*}}
+      \newcommand{\ost}{{o^*}}
+      \newcommand{\pst}{{p^*}}
+      \newcommand{\qst}{{q^*}}
+      \newcommand{\rst}{{r^*}}
+      \newcommand{\sst}{{s^*}}
+      \newcommand{\tst}{{t^*}}
+      \newcommand{\ust}{{u^*}}
+      \newcommand{\vst}{{v^*}}
+      \newcommand{\wst}{{w^*}}
+      \newcommand{\xst}{{x^*}}
+      \newcommand{\yst}{{y^*}}
+      \newcommand{\zst}{{z^*}}
+
+    % Uppercase:
+      \newcommand{\Ast}{{A^*}}
+      \newcommand{\Bst}{{B^*}}
+      \newcommand{\Cst}{{C^*}}
+      \newcommand{\Dst}{{D^*}}
+      \newcommand{\Est}{{E^*}}
+      \newcommand{\Fst}{{F^*}}
+      \newcommand{\Gst}{{G^*}}
+      \newcommand{\Hst}{{H^*}}
+      \newcommand{\Ist}{{I^*}}
+      \newcommand{\Jst}{{J^*}}
+      \newcommand{\Kst}{{K^*}}
+      \newcommand{\Lst}{{L^*}}
+      \newcommand{\Mst}{{M^*}}
+      \newcommand{\Nst}{{N^*}}
+      \newcommand{\Ost}{{O^*}}
+      \newcommand{\Pst}{{P^*}}
+      \newcommand{\Qst}{{Q^*}}
+      \newcommand{\Rst}{{R^*}}
+      \newcommand{\Sst}{{S^*}}
+      \newcommand{\Tst}{{T^*}}
+      \newcommand{\Ust}{{U^*}}
+      \newcommand{\Vst}{{V^*}}
+      \newcommand{\Wst}{{W^*}}
+      \newcommand{\Xst}{{X^*}}
+      \newcommand{\Yst}{{Y^*}}
+      \newcommand{\Zst}{{Z^*}}
+
+  % _,.-'~'-.,__,.-'~' %
+  
+  % Barred Letters
+    % Lowercase:
+      \newcommand{\abr}{\overline{a}}
+      \newcommand{\bbr}{\overline{b}}
+      \newcommand{\cbr}{\overline{c}}
+      \newcommand{\dbr}{\overline{d}}
+      \newcommand{\ebr}{\overline{e}}
+      \newcommand{\fbr}{\overline{f}}
+      \newcommand{\gbr}{\overline{g}}
+      \newcommand{\hbr}{\overline{h}}
+      \newcommand{\ibr}{\overline{i}}
+      \newcommand{\jbr}{\overline{j}}
+      \newcommand{\kbr}{\overline{k}}
+      \newcommand{\lbr}{\overline{l}}
+      \newcommand{\mbr}{\overline{m}}
+      \newcommand{\nbr}{\overline{n}}
+      \newcommand{\obr}{\overline{o}}
+      \newcommand{\pbr}{\overline{p}}
+      \newcommand{\qbr}{\overline{q}}
+      \newcommand{\rbr}{\overline{r}}
+      \newcommand{\sbr}{\overline{s}}
+      \newcommand{\tbr}{\overline{t}}
+      \newcommand{\ubr}{\overline{u}}
+      \newcommand{\vbr}{\overline{v}}
+      \newcommand{\wbr}{\overline{w}}
+      \newcommand{\xbr}{\overline{x}}
+      \newcommand{\ybr}{\overline{y}}
+      \newcommand{\zbr}{\overline{z}}
+
+    % Uppercase:
+      \newcommand{\Abr}{\overline{A}}
+      \newcommand{\Bbr}{\overline{B}}
+      \newcommand{\Cbr}{\overline{C}}
+      \newcommand{\Dbr}{\overline{D}}
+      \newcommand{\Ebr}{\overline{E}}
+      \newcommand{\Fbr}{\overline{F}}
+      \newcommand{\Gbr}{\overline{G}}
+      \newcommand{\Hbr}{\overline{H}}
+      \newcommand{\Ibr}{\overline{I}}
+      \newcommand{\Jbr}{\overline{J}}
+      \newcommand{\Kbr}{\overline{K}}
+      \newcommand{\Lbr}{\overline{L}}
+      \newcommand{\Mbr}{\overline{M}}
+      \newcommand{\Nbr}{\overline{N}}
+      \newcommand{\Obr}{\overline{O}}
+      \newcommand{\Pbr}{\overline{P}}
+      \newcommand{\Qbr}{\overline{Q}}
+      \newcommand{\Rbr}{\overline{R}}
+      \newcommand{\Sbr}{\overline{S}}
+      \newcommand{\Tbr}{\overline{T}}
+      \newcommand{\Ubr}{\overline{U}}
+      \newcommand{\Vbr}{\overline{V}}
+      \newcommand{\Wbr}{\overline{W}}
+      \newcommand{\Xbr}{\overline{X}}
+      \newcommand{\Ybr}{\overline{Y}}
+      \newcommand{\Zbr}{\overline{Z}}
+      
+% _,.-'~'-.,__,.-'~' %
+  
+  % Curved Letters
+    % Lowercase:
+      \newcommand{\afr}{\mathfrak{a}}
+      \newcommand{\bfr}{\mathfrak{b}}
+      \newcommand{\cfr}{\mathfrak{c}}
+      \newcommand{\dfr}{\mathfrak{d}}
+      \newcommand{\efr}{\mathfrak{e}}
+      \newcommand{\ffr}{\mathfrak{f}}
+      \newcommand{\gfr}{\mathfrak{g}}
+      \newcommand{\hfr}{\mathfrak{h}}
+      \newcommand{\ifr}{\mathfrak{i}}
+      \newcommand{\jfr}{\mathfrak{j}}
+      \newcommand{\kfr}{\mathfrak{k}}
+      \newcommand{\lfr}{\mathfrak{l}}
+      \newcommand{\mfr}{\mathfrak{m}}
+      \newcommand{\nfr}{\mathfrak{n}}
+      \newcommand{\ofr}{\mathfrak{o}}
+      \newcommand{\pfr}{\mathfrak{p}}
+      \newcommand{\qfr}{\mathfrak{q}}
+      \newcommand{\rfr}{\mathfrak{r}}
+      \newcommand{\sfr}{\mathfrak{s}}
+      \newcommand{\tfr}{\mathfrak{t}}
+      \newcommand{\ufr}{\mathfrak{u}}
+      \newcommand{\vfr}{\mathfrak{v}}
+      \newcommand{\wfr}{\mathfrak{w}}
+      \newcommand{\xfr}{\mathfrak{x}}
+      \newcommand{\yfr}{\mathfrak{y}}
+      \newcommand{\zfr}{\mathfrak{z}}
+
+    % Uppercase:
+      \newcommand{\Afr}{\mathfrak{A}}
+      \newcommand{\Bfr}{\mathfrak{B}}
+      \newcommand{\Cfr}{\mathfrak{C}}
+      \newcommand{\Dfr}{\mathfrak{D}}
+      \newcommand{\Efr}{\mathfrak{E}}
+      \newcommand{\Ffr}{\mathfrak{F}}
+      \newcommand{\Gfr}{\mathfrak{G}}
+      \newcommand{\Hfr}{\mathfrak{H}}
+      \newcommand{\Ifr}{\mathfrak{I}}
+      \newcommand{\Jfr}{\mathfrak{J}}
+      \newcommand{\Kfr}{\mathfrak{K}}
+      \newcommand{\Lfr}{\mathfrak{L}}
+      \newcommand{\Mfr}{\mathfrak{M}}
+      \newcommand{\Nfr}{\mathfrak{N}}
+      \newcommand{\Ofr}{\mathfrak{O}}
+      \newcommand{\Pfr}{\mathfrak{P}}
+      \newcommand{\Qfr}{\mathfrak{Q}}
+      \newcommand{\Rfr}{\mathfrak{R}}
+      \newcommand{\Sfr}{\mathfrak{S}}
+      \newcommand{\Tfr}{\mathfrak{T}}
+      \newcommand{\Ufr}{\mathfrak{U}}
+      \newcommand{\Vfr}{\mathfrak{V}}
+      \newcommand{\Wfr}{\mathfrak{W}}
+      \newcommand{\Xfr}{\mathfrak{X}}
+      \newcommand{\Yfr}{\mathfrak{Y}}
+      \newcommand{\Zfr}{\mathfrak{Z}}
+
+  % _,.-'~'-.,__,.-'~' %
+  
+  % Greek Letters and Shortcuts:
+    % Unbolded:
+      % Lowercase:
+        \newcommand{\al}{\alpha} % Alpha.
+        \newcommand{\be}{\beta} % Beta.
+        \newcommand{\gam}{\gamma} % Gamma.
+        \newcommand{\del}{\delta} % Delta.
+        \newcommand{\eps}{\varepsilon} % Epsilon.
+        \newcommand{\zet}{\zeta} % Zeta.
+        % \eta % Eta.
+        \def\th{\theta} % Theta.
+        \newcommand{\io}{\iota} % Iota.
+        \newcommand{\kap}{\kappa} % Kappa.
+        \newcommand{\lam}{\lambda} % Lambda.
+        % \mu % Mu.
+        % \nu % Nu.
+        % \xi % Xi.
+        % o % O.
+        % \pi % Pi.
+        % \rho % Rho.
+        \newcommand{\sig}{\sigma} % Sigma.
+        % \tau % Tau.
+        \newcommand{\ups}{\upsilon} % Upsilon.
+        \def\phi{\varphi} % Phi.
+        % \chi % Chi.
+        % \psi $ Psi.
+        \newcommand{\om}{\omega} % Omega.
+
+      % Uppercase:
+        % A % Alpha.
+        % B % Beta.
+        \newcommand{\Gam}{\Gamma} % Gamma.
+        \newcommand{\Del}{\Delta} % Delta.
+        % E % Epsilon.
+        \newcommand{\Zet}{\zeta} % Zeta.
+        % \eta. % Eta.
+        \newcommand{\Th}{\Theta} % Theta.
+        % I % Iota.
+        % K % Kappa.
+        \newcommand{\Lam}{\Lambda} % Lambda.
+        % M % Mu.
+        % N % Nu.
+        % \Xi % Xi.
+        % O % O.
+        % \Pi % Pi.
+        % \rho % Rho.
+        \newcommand{\Sig}{\Sigma} % Sigma.
+        % T % Tau.
+        \newcommand{\Ups}{\Upsilon} % Upsilon.
+        \def\Phi{\Phi} % Phi.
+        % X % Chi.
+        % \Psi $ Psi.
+        \newcommand{\Om}{\Omega} % Omega
+
+    % Bolded:
+       % Lowercase:
+        \newcommand{\alb}{\boldsymbol{\al}} % Alpha.
+        \newcommand{\beb}{\boldsymbol{\be}} % Beta.
+        \newcommand{\gamb}{\boldsymbol{\gam}} % Gamma.
+        \newcommand{\delb}{\boldsymbol{\del}} % Delta.
+        \newcommand{\epsb}{\boldsymbol{\eps}} % Epsilon.
+        \newcommand{\zetb}{\boldsymbol{\zet}} % Zeta.
+        \newcommand{\etab}{\boldsymbol{\eta}} % Eta.
+        \newcommand{\thb}{\boldsymbol{\th}} % Theta.
+        \newcommand{\iob}{\boldsymbol{\io}} % Iota.
+        \newcommand{\kapb}{\boldsymbol{\kap}} % Kappa.
+        \newcommand{\lamb}{\boldsymbol{\lam}} % Lambda.
+        \newcommand{\mub}{\boldsymbol{\mu}} % Mu.
+        \newcommand{\nub}{\boldsymbol{\nu}} % Nu.
+        \newcommand{\xib}{\boldsymbol{\xi}} % Xi.
+        % \ob % O.
+        \newcommand{\pib}{\boldsymbol{\pi}} % Pi.
+        % \newcommand{\rhob}{\boldsymbol{\rho}} % Rho.
+        \newcommand{\sigb}{\boldsymbol{\sig}} % Sigma.
+        \newcommand{\taub}{\boldsymbol{\tau}} % Tau.
+        \newcommand{\upsb}{\boldsymbol{\ups}} % Upsilon.
+        \newcommand{\phib}{\boldsymbol{\phi}} % Phi.
+        \newcommand{\chib}{\boldsymbol{\chi}} % Chi.
+        \newcommand{\psib}{\boldsymbol{\psi}} % Psi.
+        \newcommand{\omb}{\boldsymbol{\om}} % Omega.
+
+      % Uppercase:
+        % \Ab % Alpha.
+        % \Bb % Beta.
+        \newcommand{\Gamb}{\boldsymbol{\Gam}} % Gamma.
+        \newcommand{\Delb}{\boldsymbol{\Del}} % Delta.
+        % \Eb % Epsilon.
+        \newcommand{\Zetb}{\boldsymbol{\Zet}} % Zeta.
+        % \Hb % Eta.
+        \newcommand{\Thb}{\boldsymbol{\Th}} % Theta.
+        % \Ib % Iota.
+        % \Kb % Kappa.
+        \newcommand{\Lamb}{\boldsymbol{\Lam}} % Lambda.
+        % \Mb % Mu.
+        % \Nb % Nu.
+        % \newcommand{\Xib}{\boldsymbol{\Xi}} % Xi.
+        % \Ob % O.
+        % \newcommand{\Pib}{\boldsymbol{\Pi}} % Pi.
+        % \newcommand{\Rhob}{\boldsymbol{\Rho}} % Rho.
+        \newcommand{\Sigb}{\boldsymbol{\Sig}} % Sigma.
+        % \Tb % Tau.
+        \newcommand{\Upsb}{\boldsymbol{\Ups}} % Upsilon.
+        \newcommand{\Phib}{\boldsymbol{\Phi}} % Phi.
+        % \Xb % Chi.
+        % \newcommand{\Psib}{\boldsymbol{\Psi}} $ Psi.
+        \newcommand{\Omb}{\boldsymbol{\Om}} % Omega.
+        
+    % Additional:
+      \newcommand{\nab}{\nabla} % Nabla, inverted Delta.
+      \newcommand{\nabb}{\boldsymbol{\nab}}
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % BRACKETING
+
+  % Left and Right:
+    \def\l{\left}
+    \def\r{\right}
+
+
+  % Parentheses:
+    % (
+    \newcommand{\lp}{\left(} % Left (
+    % )
+    \newcommand{\rp}{\right)} % Right )
+
+
+  % Square Brackets:
+    % [
+    \newcommand{\lbrc}{\left[} % Left [
+    % ]
+    \newcommand{\rbrc}{\right]} % Right ]
+
+
+  % Braces:
+    % \{
+    \newcommand{\lbrs}{\left\{} % Left {
+    % \}
+    \newcommand{\rbrs}{\right\}} % Right }
+
+
+  % Trianglar Bracket
+    \newcommand{\la}{\langle} % Left Angle Bracket
+    \newcommand{\ra}{\rangle} % Right Angle Bracket
+
+
+  % Pipes:
+    % | % Pipe
+    \def\lv{\lvert} % Left Pipe
+    \def\rv{\rvert} % Right Pipe
+
+
+  % Magnitude
+    % \| % Left Magnitude
+    % \| % Right Magnitude
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % ARROWS
+      
+    % Arrow with Math
+      \NewDocumentCommand{\xto}{o o} { 
+        \IfValueTF{#1}{
+          \IfValueTF{#2}{
+            \xrightarrow[#2]{#1}
+          }{
+            \xrightarrow{#1}
+          }
+        }{
+          \longrightarrow
+        }
+      }
+    
+    % Arrow with Text
+      \NewDocumentCommand{\tto}{o o} { 
+        \IfValueTF{#1}{
+          \IfValueTF{#2}{
+            \xrightarrow[\text{#2}]{\text{#1}}
+          }{
+            \xrightarrow{\text{#1}}
+          }
+        }{
+          \to
+        }
+      }
+    
+    % Backwards Arrow
+      \newcommand{\bto}{\,\leftarrow\,} 
+      
+     % Two Direction Arrow
+      \newcommand{\lrto}{\leftrightarrow}
+
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % UTILITY
+  
+    % Quick words
+      \newcommand{\andd}{\text{ and }}
+      \newcommand{\forsm}{\text{ for some }}
+      \newcommand{\orr}{\text{ or }}
+
+    % Quick Formatting
+      \newcommand{\textitbf}[1]{\textit{\textbf{#1}}}
+      
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % SETS
+  
+    % Important Sets:
+      \newcommand{\N}{\mathbb{N}} % Natural Numbers.
+      \newcommand{\Z}{\mathbb{Z}} % Integers.
+      \newcommand{\Q}{\mathbb{Q}} % Rational Numbers.
+      \newcommand{\R}{\mathbb{R}} % Real Numbers.
+      \newcommand{\C}{\mathbb{C}} % Complex Numbers.
+      \newcommand{\empt}{\varnothing} % Empty Set.
+    
+    % Set Relations
+      % Subset
+        \newcommand{\subs}{\subset}
+        \newcommand{\subeq}{\subseteq}
+        \newcommand{\sups}{\supset}
+        \newcommand{\supeq}{\supseteq}
+      \newcommand{\nin}{\not\in}
+
+    
+    % Set Operations
+      % Set Minus
+      \newcommand{\setm}{\setminus}
+      
+      % Multiple Set Union
+        \newcommand{\mun}{\bigcup}
+        \newcommand{\munf}[1][k]{\mun_{#1 = 1}^\infty}
+      % Multiple Set Intersection
+        \newcommand{\mint}{\bigcap}
+        \newcommand{\minf}[1][k]{\mun_{#1 = 1}^\infty}
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % THEOREMS
+
+    % Lemma:
+      \newtheorem{lemma}{Lemma}
+      \newtheorem{theorem}{Theorem}
+
+    % Definition
+      \theoremstyle{definition} % Definition
+      \newtheorem{definition}{Definition}
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % CALCULUS AND ANALYSIS
+
+    % Set Tools
+      \newcommand{\diam}{\text{diam}}
+      
+      % Interior
+        \newcommand{\In}{\text{int }}
+        
+    % Function Tools
+      \newcommand{\restr}[1]{|_{#1}}
+      
+    % Limits
+      \newcommand{\limtinf}[1][n]{\lim_{#1\to\infty}}
+      \newcommand{\limtz}[1][x]{\lim_{#1\to 0}}
+
+    % Intergrals:
+      % Differential D
+      \newcommand{\dsl}{\:\textsl{d}}
+      
+      % \int % Single Integral
+      \newcommand{\dint}{{\int \!\! \int \!\!}} % Double Integral.
+      \newcommand{\tint}{{\int \!\! \int \!\! \int \!\!}} % Triple Integral.
+
+      % Prebounded Integral
+      \newcommand{\intb}{\int_a^b}
+
+    % Derivatives:
+      \newcommand{\parh}{\partial}
+      \newcommand{\dv}[2]{\frac{d#1}{d#2}} % Single Derivative
+      \newcommand{\dvop}[1][x]{\frac{d}{d#1}} % Single Derivative Operator
+      \newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}} % Partial Derivative
+      \newcommand{\pdvop}[1]{\frac{\partial}{\partial #1}} % Partial Derivative Operator
+      
+    % Special Operators
+      \newcommand{\Jac}{\text{Jac}} % Jacobian
+      \newcommand{\Curl}{\text{Curl}} % Curl
+
+    % Convergence
+      % Point-wise Convergence
+        \newcommand{\pwto}{\tto[p.w.]}
+      % Uniform Convergence
+        \newcommand{\unif}{\tto[unif.]}
+      
+    % Measure
+      % Outer Measure
+        \newcommand{\omes}{{m_*}}
+      
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % COMPLEX ANALYSIS
+  
+    % Components
+      \newcommand{\re}{{\rm Re }~} % Real Component
+      \newcommand{\im}{{\rm Im }~} % Imaginary Component
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+% LINEAR ALGEBRA
+
+  % Bracketed Matrices:
+    \NewDocumentCommand{\bmat}{o}{
+      \IfValueTF{#1} {
+        \begin{bmatrix}[#1]
+      }{
+        \begin{bmatrix}
+      }
+    }
+    
+    \newcommand{\emat}{\end{bmatrix}} % End Matrix
+    
+  % Determinant Matrices:
+    \newcommand{\vbmat}{\begin{vmatrix}}
+    \newcommand{\vemat}{\end{vmatrix}}
+    
+  % Augmented Matrices:
+    \makeatletter
+      \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	  \hskip -\arraycolsep
+	  \let\@ifnextchar\new@ifnextchar
+	   \array{#1}}
+    \makeatother
+
+    % And to display them:
+      \def\Height{\vphantom{\begin{array}{c}a\cr a\cr a\cr\end{array}}} 
+      \def\|{\!\!\smash{\left|\Height\right.}\!\!} 
+      \def\Matrix#1{\left[\;\;\Height\begin{array}{rrrcr}#1\end{array}\;\;\right]}
+    
+  % Zero Vector
+    \newcommand{\ozb}{\textbf{0}}
+    
+  % Operators
+    \newcommand{\Span}{\text{span }}
+    
+    
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+% ABSTRACT ALGEBRA
+
+  % Kernel
+    \newcommand{\Ker}{\text{Ker}\:}
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % PROGRAMMING
+
+    % Coding Fonts
+      % Default teletype font does not support bold face
+      \DeclareFixedFont{\telemed}{T1}{txtt}{m}{n}{12}  % Normal Text
+      \DeclareFixedFont{\telebold}{T1}{txtt}{bx}{n}{12} % Bold Text
+      
+    % Coding Colors
+    \definecolor{deepblue}{rgb}{0,0,0.5}
+    \definecolor{deepred}{rgb}{0.6,0,0}
+    \definecolor{deepgreen}{rgb}{0,0.5,0}
+
+    % Generic Code
+      \newcommand{\codel}[1]{\texttt{#1}} % In-Line Code
+
+    % Python
+      % Python Text styles
+      \newcommand{\pystyleb}{
+        \lstset{
+          framesep=10pt,  % Increased from 5pt to 10pt
+          language=Python,
+          basicstyle=\telemed,
+          morekeywords={self}, % Add more over time.
+          keywordstyle=\telebold\color{deepblue},
+          emph={}, % Custom highlighting
+          emphstyle=\telebold\color{deepred},
+          stringstyle=\color{deepgreen},
+          frame=tb,
+          showstringspaces=false
+        }
+      }
+      \lstdefinestyle{pystylel}{
+        language=Python,
+        basicstyle=\ttfamily,
+        keywordstyle=\color{deepblue},
+        stringstyle=\color{deepgreen}
+      }
+
+      % Python Environment, allowing for optional styling like line numbers.
+      \lstnewenvironment{python}[1][]
+      {
+        \vspace{\topsep}
+        \needspace{2\baselineskip}
+        \pystyleb
+        \lstset{#1}
+      }
+      {
+        \needspace{2\baselineskip}
+        \vspace{\topsep}
+      }
+
+      \newcommand{\pythonl}[1]{\lstinline[style=pystylel]!#1!} % Python In-Line
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % OTHER
+
+    % Congruence:
+      \newcommand{\teq}{\equiv} % Triple Equal Sign.
+      \newcommand{\tneq}{\not\equiv} % Not Triple Equal Sign.
+ 
+    % Inverse
+      \newcommand{\inv}{{-1}} % -1 Grouped Together.
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
+
+
+% ***
