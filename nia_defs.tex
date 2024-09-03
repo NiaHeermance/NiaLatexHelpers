@@ -617,7 +617,10 @@
       \newcommand{\orr}{\text{ or }}
 
     % Quick Formatting
-      \newcommand{\textitbf}[1]{\textit{\textbf{#1}}}
+      \newcommand{\textitbf}[1]{\textit{\textbf{#1}}} % Italics bold
+
+      \newcommand{\bcenter}{\begin{center}} % centering
+      \newcommand{\ecenter}{\end{center}}
       
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
@@ -712,8 +715,8 @@
       \newcommand{\dsl}{\:\textsl{d}}
       
       % \int % Single Integral
-      \newcommand{\dint}{{\int \!\! \int \!\!}} % Double Integral.
-      \newcommand{\tint}{{\int \!\! \int \!\! \int \!\!}} % Triple Integral.
+      \newcommand{\dint}{\iint} % Double Integral.
+      \newcommand{\tint}{{\iiint}} % Triple Integral.
 
       % Prebounded Integral
       \newcommand{\intb}{\int_a^b}
@@ -768,7 +771,7 @@
 
 % LINEAR ALGEBRA
 
-  % Bracketed Matrices:
+  % Bracketed Matrices (mostly used for in-line):
     \NewDocumentCommand{\bmat}{o}{
       \IfValueTF{#1} {
         \begin{bmatrix}[#1]
@@ -800,7 +803,10 @@
     \newcommand{\ozb}{\textbf{0}}
     
   % Operators
-    \newcommand{\Span}{\text{span }}
+    \newcommand{\Span}{\text{span}\,}
+    \newcommand{\rank}{\text{rank}\,}
+    \newcommand{\nullity}{\text{nullity}\,}
+    \newcommand{\dun}{\text{dun}\,}
     
     
 
