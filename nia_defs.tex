@@ -33,7 +33,7 @@
     \usepackage{amsthm} % Theorems.
 
   % Coding
-    \usepackage{listings} % Coding Formats
+    \usepackage{minted} % Coding
 
   % Utility
     \usepackage{graphicx} % Figures.
@@ -47,7 +47,7 @@
     \usepackage[utf8]{inputenc} % UTF-8 Encoding
     \usepackage{microtype} % Allows stretching of letters for more happy boxes
     \usepackage{needspace} % Allows forcing of blocks to finish on the next page.
-    \usepackage{color} % Different color keywords.
+    \usepackage{xcolor} % Different color keywords.
     \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref} % Links
 
   % _,.-'~'-.,__,.-'~' %
@@ -660,7 +660,7 @@
         \newcommand{\mun}{\bigcup}
         \newcommand{\munf}[1][k]{\mun_{#1 = 1}^\infty}
       % Multiple Set Intersection
-        \newcommand{\mint}{\bigcap}
+        \newcommand{\mintt}{\bigcap}
         \newcommand{\minf}[1][k]{\mun_{#1 = 1}^\infty}
 
 
@@ -838,57 +838,26 @@
 
   % PROGRAMMING
 
-    % Coding Fonts
-      % Default teletype font does not support bold face
-      \DeclareFixedFont{\telemed}{T1}{txtt}{m}{n}{12}  % Normal Text
-      \DeclareFixedFont{\telebold}{T1}{txtt}{bx}{n}{12} % Bold Text
-      
-    % Coding Colors
-    \definecolor{deepblue}{rgb}{0,0,0.5}
-    \definecolor{deepred}{rgb}{0.6,0,0}
-    \definecolor{deepgreen}{rgb}{0,0.5,0}
+    % Minted Settings
+    \setminted{
+      style = manni,
+      breaklines,
+      escapeinside=||,
+      mathescape=true,
+      fontsize=\small
+    }
 
     % Generic Code
-      \newcommand{\codel}[1]{\texttt{#1}} % In-Line Code
+      % In-Line
+      \newcommand{\codel}[1]{\texttt{#1}\hspace{-0.1em}}
+      % Code Block
+      \newenvironment{code}{\VerbatimEnvironment\begin{minted}{text}} {\end{minted}}
 
     % Python
-      % Python Text styles
-      \newcommand{\pystyleb}{
-        \lstset{
-          framesep=10pt,  % Increased from 5pt to 10pt
-          language=Python,
-          basicstyle=\telemed,
-          morekeywords={self, True, False}, % Add more over time.
-          keywordstyle=\telebold\color{deepblue},
-          emph={}, % Custom highlighting
-          emphstyle=\telebold\color{deepred},
-          stringstyle=\color{deepgreen},
-          frame=tb,
-          showstringspaces=false
-        }
-      }
-      \lstdefinestyle{pystylel}{
-        language=Python,
-        basicstyle=\ttfamily,
-        keywordstyle=\color{deepblue},
-        stringstyle=\color{deepgreen}
-      }
-
-      % Python Environment, allowing for optional styling like line numbers.
-      \lstnewenvironment{python}[1][]
-      {
-        \vspace{\topsep}
-        \needspace{2\baselineskip}
-        \pystyleb
-        \lstset{#1}
-      }
-      {
-        \needspace{2\baselineskip}
-        \vspace{\topsep}
-      }
-
-      \newcommand{\pythonl}[1]{\lstinline[style=pystylel]!#1!} % Python In-Line
-
+      % In-Line
+      \newcommand{\pythonl}[1]{\mintinline{python}{#1}}
+      % Code Block
+      \newenvironment{python}{\VerbatimEnvironment\begin{minted}{python}} {\end{minted}}
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
 
