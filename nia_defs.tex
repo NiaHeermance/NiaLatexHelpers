@@ -34,17 +34,24 @@
 
   % Coding
     \usepackage{minted} % Coding
-
-  % Utility
+  
+  % Arrays and Figures
+    \usepackage{array} % Fixed width centered columns.
+    \usepackage{multirow} % Centered entries in tables.
     \usepackage{graphicx} % Figures.
     \usepackage{caption} % Hiding figure numbers.
     \usepackage{float} % For placing figures.
+
+
+  % Utility
     \usepackage{enumerate} % Enumerate Entries.
     \usepackage{mathtools} % Boxing Aligned Answers.
     \usepackage{xparse} % Multiple Optional Arguments.
+    \usepackage{tcolorbox} % Callout Boxes.
   
   % LaTeX Looks
     \usepackage[utf8]{inputenc} % UTF-8 Encoding
+    \usepackage{xspace}
     \usepackage{microtype} % Allows stretching of letters for more happy boxes
     \usepackage{needspace} % Allows forcing of blocks to finish on the next page.
     \usepackage{xcolor} % Different color keywords.
@@ -507,6 +514,35 @@
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % ARRAYS
+
+  % Vertical Lines
+    \newcommand{\hidevline}[1]{\multicolumn{1}{c}{#1}}
+  
+  % Custom Columns
+    % Centered Fixed Width:
+      \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
   % BRACKETING
 
   % Left and Right:
@@ -549,7 +585,6 @@
   % Magnitude
     % \| % Left Magnitude
     % \| % Right Magnitude
-
 
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
@@ -674,7 +709,7 @@
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
-  % THEOREMS
+  % THEOREMS AND OTHER ENVIRONMENTS
 
     % Lemma:
       \newtheorem{lemma}{Lemma}
@@ -683,6 +718,17 @@
     % Definition
       \theoremstyle{definition} % Definition
       \newtheorem{definition}{Definition}
+    
+    % Callout Box
+      \newenvironment{callout}
+        {
+          \vspace{1em}
+          \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+        }
+        {
+          \end{tcolorbox}
+          \vspace{1em}
+        }
 
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
@@ -836,11 +882,31 @@
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
+  % OTHER
+
+    % Congruence:
+      \newcommand{\teq}{\equiv} % Triple Equal Sign.
+      \newcommand{\tneq}{\not\equiv} % Not Triple Equal Sign.
+ 
+    % Inverse
+      \newcommand{\inv}{{-1}} % -1 Grouped Together.
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
   % PROGRAMMING
 
     % Minted Settings
     \setminted{
-      style = manni,
+      style = autumn,
       breaklines,
       escapeinside=||,
       mathescape=true,
@@ -855,29 +921,9 @@
 
     % Python
       % In-Line
-      \newcommand{\pythonl}[1]{\mintinline{python}{#1}}
+      \newcommand{\pythonl}[2][]{\mintinline[#1]{python}{#2}}
       % Code Block
       \newenvironment{python}{\VerbatimEnvironment\begin{minted}{python}} {\end{minted}}
-
-% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
-
-
-
-% ...*...
-
-
-
-% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
-
-  % OTHER
-
-    % Congruence:
-      \newcommand{\teq}{\equiv} % Triple Equal Sign.
-      \newcommand{\tneq}{\not\equiv} % Not Triple Equal Sign.
- 
-    % Inverse
-      \newcommand{\inv}{{-1}} % -1 Grouped Together.
-
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
 
