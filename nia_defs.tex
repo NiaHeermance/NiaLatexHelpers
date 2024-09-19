@@ -53,7 +53,7 @@
     \usepackage[utf8]{inputenc} % UTF-8 Encoding
     \usepackage{xspace}
     \usepackage{microtype} % Allows stretching of letters for more happy boxes
-    \usepackage{needspace} % Allows forcing of blocks to finish on the next page.
+    \usepackage{needspace} % Allows forcing blocks to finish on the next page.
     \usepackage{xcolor} % Different color keywords.
     \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref} % Links
 
@@ -86,11 +86,6 @@
       \makeatother
 
   % _,.-'~'-.,__,.-'~' %
-
-  % Formatting Shortcuts
-    
-    % In-Line Format
-      \newcommand{\disp}[1]{\displaystyle{#1}}
   
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
@@ -650,15 +645,33 @@
       \newcommand{\andd}{\text{ and }}
       \newcommand{\forsm}{\text{ for some }}
       \newcommand{\orr}{\text{ or }}
-
-    % Quick Formatting
-      \newcommand{\textitbf}[1]{\textit{\textbf{#1}}} % Italics bold
-
-      \newcommand{\bcenter}{\begin{center}} % centering
-      \newcommand{\ecenter}{\end{center}}
       
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % FORMATTING
+
+  % Text Styles
+    \newcommand{\disp}[1]{\displaystyle{#1}} % In-Line big equations
+
+    \newcommand{\textitbf}[1]{\textit{\textbf{#1}}} % Italics bold
+
+  % Centering
+    \newcommand{\bcenter}{\begin{center}}
+    \newcommand{\ecenter}{\end{center}}
+
+  % Keeping to One Page
+    \newcommand{\maynewpage}{\needspace{5\baselineskip}}
+
+  % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
 
 
