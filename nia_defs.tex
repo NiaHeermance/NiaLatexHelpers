@@ -932,22 +932,26 @@
 
     % Generic Code
       % In-Line
-      \newcommand{\codel}[1]{\texttt{#1}\hspace{-0.1em}}
+      \newcommand{\codel}[2][]{\mintinline[#1]{text}{#2}}
       % Code Block
       \newenvironment{code}
-      {\par\needspace{3\baselineskip}
+      {\bigskip
+        \needspace{3\baselineskip}
         \VerbatimEnvironment
         \begin{mdframed}[
           topline=true,
           bottomline=true,
           leftline=false,
           rightline=false,
-          linewidth=0.5pt
+          linewidth=0.5pt,
+          innertopmargin=10pt,
+          innerbottommargin=10pt
         ]
         \begin{minted}{text}}
       {\end{minted}
         \end{mdframed}
-        \needspace{3\baselineskip}}
+        \needspace{3\baselineskip}
+        \smallskip}
 
     % Python
       \setminted[python]{python3=true}
@@ -956,19 +960,23 @@
       \newcommand{\pythonl}[2][]{\mintinline[#1]{python}{#2}}
       % Code Block
       \newenvironment{python}
-        {\par\needspace{3\baselineskip}
+        {\bigskip
+          \needspace{3\baselineskip}
           \VerbatimEnvironment
           \begin{mdframed}[
             topline=true,
             bottomline=true,
             leftline=false,
             rightline=false,
-            linewidth=0.5pt
+            linewidth=0.5pt,
+            innertopmargin=10pt,
+            innerbottommargin=10pt
           ]
           \begin{minted}{python}}
         {\end{minted}
           \end{mdframed}
-          \needspace{3\baselineskip}}
+          \needspace{3\baselineskip}
+          \smallskip}
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
 
