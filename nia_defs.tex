@@ -47,7 +47,8 @@
     \usepackage{enumerate} % Enumerate Entries.
     \usepackage{mathtools} % Boxing Aligned Answers.
     \usepackage{xparse} % Multiple Optional Arguments.
-    \usepackage{tcolorbox} % Callout Boxes.
+    \usepackage[most]{tcolorbox} % Callout Boxes.
+    \usepackage{mdframed} % More minimal frames.
   
   % LaTeX Looks
     \usepackage[utf8]{inputenc} % UTF-8 Encoding
@@ -84,7 +85,9 @@
       {\left\lvert\mkern5mu\env@matrix}
       {\endmatrix\mkern5mu\right\rvert}
       \makeatother
-
+    
+      % Coding
+      \renewcommand\theFancyVerbLine{\small\arabic{FancyVerbLine}}
   % _,.-'~'-.,__,.-'~' %
   
 
@@ -920,23 +923,52 @@
     % Minted Settings
     \setminted{
       style = autumn,
-      breaklines,
+      breaklines=true,
       escapeinside=||,
       mathescape=true,
-      fontsize=\small
+      fontsize=\small,
+      linenos=true
     }
 
     % Generic Code
       % In-Line
       \newcommand{\codel}[1]{\texttt{#1}\hspace{-0.1em}}
       % Code Block
-      \newenvironment{code}{\VerbatimEnvironment\begin{minted}{text}} {\end{minted}}
+      \newenvironment{code}
+      {\par\needspace{3\baselineskip}
+        \VerbatimEnvironment
+        \begin{mdframed}[
+          topline=true,
+          bottomline=true,
+          leftline=false,
+          rightline=false,
+          linewidth=0.5pt
+        ]
+        \begin{minted}{text}}
+      {\end{minted}
+        \end{mdframed}
+        \needspace{3\baselineskip}}
 
     % Python
+      \setminted[python]{python3=true}
+
       % In-Line
       \newcommand{\pythonl}[2][]{\mintinline[#1]{python}{#2}}
       % Code Block
-      \newenvironment{python}{\VerbatimEnvironment\begin{minted}{python}} {\end{minted}}
+      \newenvironment{python}
+        {\par\needspace{3\baselineskip}
+          \VerbatimEnvironment
+          \begin{mdframed}[
+            topline=true,
+            bottomline=true,
+            leftline=false,
+            rightline=false,
+            linewidth=0.5pt
+          ]
+          \begin{minted}{python}}
+        {\end{minted}
+          \end{mdframed}
+          \needspace{3\baselineskip}}
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
 
