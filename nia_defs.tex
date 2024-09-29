@@ -595,6 +595,32 @@
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
+  % LOGIC
+
+    % Common Symbols
+      \newcommand{\taut}{\top}
+      \newcommand{\con}{\bot}
+
+    % Common Operators
+      \newcommand{\limp}{\rightarrow} % Logic Implication (Matieral)
+      \newcommand{\mlimp}{\Rightarrow} % Meta-logic Implication
+      \newcommand{\bimp}{\leftrightarrow} % Logic Equivalence
+      \newcommand{\mbimp}{\Leftrightarrow} % Meta-Logic Equivalence
+
+    % Proof Systems
+      \newcommand{\minfer}{\vdash} % Meta-Logic Inference
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
   % ARROWS
       
     % Arrow with Math
@@ -952,6 +978,12 @@
         \end{mdframed}
         \needspace{3\baselineskip}
         \smallskip}
+      
+      % Code without line numbers nor frame.
+      \newenvironment{purecode}
+      {\VerbatimEnvironment
+        \begin{minted}[linenos=false]{text}}
+      {\end{minted}}
 
     % Python
       \setminted[python]{python3=true}
