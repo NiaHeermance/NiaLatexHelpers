@@ -517,6 +517,24 @@
 % ...*...
 
 
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+  % UTILITY
+  
+    % Quick words
+    \newcommand{\andd}{\text{ and }}
+    \newcommand{\forsm}{\text{ for some }}
+    \newcommand{\orr}{\text{ or }}
+    \newcommand{\tiff}{\text{ if and only if }}
+    
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
@@ -546,28 +564,7 @@
   % Left and Right:
     \def\l{\left}
     \def\r{\right}
-
-
-  % Parentheses:
-    % (
-    \newcommand{\lp}{\left(} % Left (
-    % )
-    \newcommand{\rp}{\right)} % Right )
-
-
-  % Square Brackets:
-    % [
-    \newcommand{\lbrc}{\left[} % Left [
-    % ]
-    \newcommand{\rbrc}{\right]} % Right ]
-
-
-  % Braces:
-    % \{
-    \newcommand{\lbrs}{\left\{} % Left {
-    % \}
-    \newcommand{\rbrs}{\right\}} % Right }
-
+  
 
   % Trianglar Bracket
     \newcommand{\la}{\langle} % Left Angle Bracket
@@ -609,6 +606,10 @@
 
     % Proof Systems
       \newcommand{\minfer}{\vdash} % Meta-Logic Inference
+    
+    % Quotation Marks for statements.
+      \newcommand{\lquo}{\text{``}}
+      \newcommand{\rquo}{\text{''}}
 
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
@@ -657,30 +658,12 @@
 
 
 
-
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
 
 
 
 % ...*...
 
-
-
-% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
-
-  % UTILITY
-  
-    % Quick words
-      \newcommand{\andd}{\text{ and }}
-      \newcommand{\forsm}{\text{ for some }}
-      \newcommand{\orr}{\text{ or }}
-      
-
-% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
-
-
-
-% ...*...
 
 
 
@@ -739,6 +722,11 @@
       % Multiple Set Intersection
         \newcommand{\mintt}{\bigcap}
         \newcommand{\minf}[1][k]{\mun_{#1 = 1}^\infty}
+
+      % Disjoint Union
+        \newcommand{\dcup}{\sqcup}
+        \newcommand{\dmun}{\bigsqcup}
+
 
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
@@ -891,10 +879,14 @@
     \newcommand{\ozb}{\textbf{0}}
     
   % Operators
-    \newcommand{\Span}{\text{span}\,}
+    \newcommand{\spann}{\text{span}\,}
     \newcommand{\rank}{\text{rank}\,}
     \newcommand{\nullity}{\text{nullity}\,}
-    \newcommand{\dun}{\text{dun}\,}
+    % \newcommand{\dim}{\text{dim}\,} dim already exists
+
+  % Spaces
+    \newcommand{\nulll}{\text{null}\,}
+    \newcommand{\col}{\text{col}\,}
     
     
 
@@ -912,6 +904,24 @@
 
   % Kernel
     \newcommand{\Ker}{\text{Ker}\:}
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+
+
+% ...*...
+
+
+
+% .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
+
+% Geometry
+
+  % Incidence Geometry
+  \newcommand{\point}{\text{Point}}
+  \newcommand{\linee}{\text{Line}}
+  \newcommand{\lieon}{\text{LieOn}}
 
 
 % .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. %
